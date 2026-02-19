@@ -38,7 +38,7 @@
 
 Bash
 # 1. Clone the repository
-git clone https://github.com/Parth04Dalvi/Food-Life.git
+git clone https://github.com/Parth04Dalvi/Food-Life-marketplace.git
 
 # 2. Start the services
 docker-compose up --build
