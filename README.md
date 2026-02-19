@@ -42,6 +42,4 @@ git clone https://github.com/Parth04Dalvi/Food-Life-marketplace.git
 
 # 2. Start the services
 docker-compose up --build
-<p align="center">
-<i>Developed with ❤️ by <b>Parth Dalvi</b> | M.S. Computer Science @ Purdue University</i>
-</p>
+
