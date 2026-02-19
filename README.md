@@ -1,4 +1,4 @@
-🍏 <p align="center">Food-Life: Waste Reduction Marketplace</p>
+ <p align="center">Food-Life: Waste Reduction Marketplace</p>
 <p align="center">
 <i>A real-time, full-stack solution connecting local vendors with consumers to eliminate urban food waste.</i>
 </p>
