@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.3-alpine # PostGIS for spatial queries
+    environment:
+      POSTGRES_DB: foodlife
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck: # Ensures DB is ready before backend starts
+      test: ["CMD-SHELL", "pg_isready -U user -d foodlife"]
+      interval: 10s
+      retries: 5
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app # Enables hot-reloading during development
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/foodlife
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
